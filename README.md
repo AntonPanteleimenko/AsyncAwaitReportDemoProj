@@ -162,14 +162,14 @@ As we saw in the previous sections, the use of async/await syntax comes with a l
 
 Advantages
 
-1 Avoid the Pyramid of Doom problem with nested closures
-2 Reduction of code
-3 Easier to read
-4 Safety. With async/await, a result is guaranteed, while completion blocks might or might not be called.
+1. Avoid the Pyramid of Doom problem with nested closures;
+2. Reduction of code;
+3. Easier to read;
+4. Safety. With async/await, a result is guaranteed, while completion blocks might or might not be called.
 
 Disadvantages
 
-1 It's only available from Swift 5.5 and iOS 15 onwards.
+1. It's only available from Swift 5.5 and iOS 15 onwards.
 
 ### Actors
 
@@ -190,22 +190,23 @@ class Order {
 
 If we are in a single-thread application, this code is just fine. But what happens if we have multiple threads that can access our order's final price?
 
-1 We are on the product list and add some specific products to our order. The app will call the addProduct function.
-2 The product is added to our order's product list
-3 Before the final price gets updated, the user tries to checkout.
-4 The app will read the final price of our order
-5 The addProduct function completes and updates the final price. But the user already checkout and paid less than they should.
-6 This problem is known as Data Races when some particular resource could be accessed from multiple parts of the app's code.
+1. We are on the product list and add some specific products to our order. The app will call the addProduct function;
+2. The product is added to our order's product list;
+3. Before the final price gets updated, the user tries to checkout;
+4. The app will read the final price of our order;
+4. The addProduct function completes and updates the final price. But the user already checkout and paid less than they should;
+6. This problem is known as Data Races when some particular resource could be accessed from multiple parts of the app's code.
 
 Actors, also introduced in Swift 5.5 and iOS 15, resolve this problem for us. An Actor is basically like a class but with a few key differences that make them thread-safe:
 
-1 Only allow accessing their state by one task at a time
-2 Stored properties and functions can only be access from outside the Actor if the operation is performed asynchronously.
-3 Stored properties can't be written from outside the Actor.
+1. Only allow accessing their state by one task at a time;
+2. Stored properties and functions can only be access from outside the Actor if the operation is performed asynchronously;
+3. Stored properties can't be written from outside the Actor.
 
 On the downside:
 
-1 Actors do not support inheritance
+1. Actors do not support inheritance.
+
 You can think about the Actors like a similar solution of the semaphores) concept.
 
 To create one, we just need to use the actor keyword.
@@ -286,8 +287,8 @@ actor ArticlesList {
 By default, each method of an actor becomes isolated, which means you’ll have to be in the context of an actor already or use await to wait for approved access to actor contained data.
 It’s typical to run into errors with actors like the ones below:
 
-1 Actor-isolated property ‘balance’ can not be referenced from a non-isolated context
-2 Expression is ‘async’ but is not marked with ‘await’
+1. Actor-isolated property ‘balance’ can not be referenced from a non-isolated context;
+2. Expression is ‘async’ but is not marked with ‘await’.
 
 Both errors have the same root cause: actors isolate access to its properties to ensure mutually exclusive access.
 
