@@ -1,7 +1,7 @@
 # New structured concurrency changes
 
 Async await is part of the new structured concurrency changes that arrived in Swift 5.5 during WWDC 2021. Concurrency in Swift means allowing multiple pieces of code to run at the same time. This is a very simplified description, but it should give you an idea already how important concurrency in Swift is for the performance of your apps. With the new async methods and await statements, we can define methods performing work asynchronously.
-You can find more information in a [presentation](https://docs.google.com/presentation/d/1jk9Jyf7-EleHu08slPAF0QkMBI6Emy0k/edit?usp=sharing&ouid=103572584375496531035&rtpof=true&sd=true) and [video](https://google.com).
+You can find more information in a [presentation](https://docs.google.com/presentation/d/1jbJgR_zqZK_3KOcRfnfKLSnHc1w6_vCc/edit?usp=sharing&ouid=103572584375496531035&rtpof=true&sd=true) and [video](https://google.com).
 
 ## Before Async/Await
 
